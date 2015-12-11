@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages package="com.game.dataserver" id="203">
+	<!-- 服务器发送消息 -->
+	<message id="101" type="SC" name="ResChangeServer" explain="切换服务器">
+		<field class="int" name="serverId" explain="服务器Id"></field>
+		<field class="String" name="web" explain="服务器平台"></field>
+		<field class="String" name="userId" explain="账号id"></field>
+		<field class="long" name="dataServerPlayerId" explain="角色id"></field>
+	</message>
+	
+	<!-- 服务器接收消息 -->
+	<message id="201" type="CS" name="ReqChangeServer" explain="跨服务器">
+		<field class="int" name="serverId" explain="服务器Id"></field>
+		<field class="String" name="web" explain="服务器平台"></field>
+	</message>
+	
+	<!-- 服务器之间消息 -->
+	<message id="301" type="CS" name="ReqSyncPlayerToDataServer" explain="同步公共服务器玩家全部信息">
+		<field class="long" name="playerId" explain="角色id"></field>
+		<field class="String" name="userId" explain="账号"></field>
+		<field class="String" name="userName" explain="账号名字"></field>
+		<field class="int" name="serverId" explain="服务器编号"></field>
+		<field class="String" name="web" explain="服务器平台"></field>
+		<field class="String" name="data" explain="数据"></field>
+	</message>
+	
+	<message id="302" type="SS" name="ResSyncPlayerToDataServer" explain="同步公共服务器玩家全部信息返回">
+		<field class="String" name="userId" explain="账号"></field>
+		<field class="String" name="userName" explain="账号名字"></field>
+		<field class="long" name="playerId" explain="角色id"></field>
+		<field class="long" name="dataServerPlayerId" explain="公共区角色id"></field>
+		<field class="int" name="result" explain="返回结果 0-成功 1-跨服中..."></field>
+	</message>
+	
+	<message id="303" type="SS" name="ReqSyncPlayerInfoFromDataServer" explain="请求公共服务器玩家全部信息">
+		<field class="int" name="serverId" explain="跨服服务器id"></field>
+		<field class="String" name="serverWeb" explain="跨服服务器平台"></field>
+		<field class="int" name="gateId" explain="跨服网关id"></field>
+		<field class="String" name="userId" explain="账号"></field>
+		<field class="String" name="web" explain="服务器平台"></field>
+		<field class="long" name="dataServerPlayerId" explain="角色id"></field>
+	</message>
+	
+	<message id="304" type="CS" name="ResSyncPlayerInfoFromDataServer" explain="返回请求公共服务器玩家全部信息">
+		<field class="long" name="dataServerPlayerId" explain="角色id"></field>
+		<field class="String" name="userId" explain="账号"></field>
+		<field class="int" name="serverId" explain="服务器编号"></field>
+		<field class="int" name="gateId" explain="跨服网关id"></field>
+		<field class="String" name="web" explain="服务器平台"></field>
+		<field class="String" name="data" explain="数据"></field>
+	</message>
+	
+	<message id="305" type="SS" name="ResSyncPlayerInfoFromDataServerError" explain="返回请求公共服务器玩家错误信息">
+		<field class="long" name="dataServerPlayerId" explain="角色id"></field>
+		<field class="String" name="userId" explain="账号"></field>
+		<field class="String" name="web" explain="服务器平台"></field>
+		<field class="int" name="serverId" explain="跨服服务器id"></field>
+		<field class="int" name="gateId" explain="跨服网关id"></field>
+		<field class="int" name="error" explain="错误类型 1-角色不存在 2-账号不存在 3-已经在跨服中"></field>
+	</message>
+	
+	<message id="306" type="SS" name="ReqPlayerStateFromDataServer" explain="请求公共服务器玩家状态">
+		<field class="long" name="playerId" explain="角色id"></field>
+		<field class="String" name="userId" explain="账号"></field>
+		<field class="String" name="web" explain="服务器平台"></field>
+	</message>
+	
+	<message id="307" type="SS" name="ResPlayerStateFromDataServer" explain="返回请求公共服务器玩家状态信息">
+		<field class="long" name="playerId" explain="角色id"></field>
+		<field class="String" name="userId" explain="账号"></field>
+		<field class="String" name="web" explain="服务器平台"></field>
+		<field class="int" name="state" explain="状态类型"></field>
+	</message>
+	
+	<message id="308" type="SS" name="ReqPlayerQuitToDataServer" explain="请求公共服务器玩家结束跨服">
+		<field class="int" name="serverId" explain="跨服服务器id"></field>
+		<field class="long" name="dataServerPlayerId" explain="角色id"></field>
+		<field class="String" name="bag" explain="跨服背包数据"></field>
+	</message>
+	
+	<message id="309" type="SS" name="ResPlayerQuitToDataServer" explain="返回请求公共服务器玩家结束跨服信息">
+		<field class="int" name="serverId" explain="跨服服务器id"></field>
+		<field class="long" name="dataServerPlayerId" explain="角色id"></field>
+		<field class="int" name="state" explain="状态类型"></field>
+	</message>
+	
+	<message id="310" type="SS" name="ReqSyncPlayerCrossToDataServer" explain="同步公共服务器玩家跨服部分信息">
+		<field class="int" name="serverId" explain="跨服服务器id"></field>
+		<field class="long" name="dataServerPlayerId" explain="角色id"></field>
+		<field class="String" name="bag" explain="跨服背包数据"></field>
+	</message>
+	
+	<message id="311" type="SS" name="ResSyncPlayerCrossToDataServer" explain="返回同步公共服务器玩家跨服部分状态信息">
+		<field class="int" name="serverId" explain="跨服服务器id"></field>
+		<field class="long" name="dataServerPlayerId" explain="角色id"></field>
+		<field class="int" name="state" explain="状态类型"></field>
+	</message>
+	
+	<message id="312" type="SS" name="ReqPlayerCrossFromDataServer" explain="请求公共服务器玩家跨服部分信息">
+		<field class="long" name="playerId" explain="角色id"></field>
+		<field class="String" name="userId" explain="账号"></field>
+		<field class="String" name="web" explain="服务器平台"></field>
+	</message>
+	
+	<message id="313" type="SS" name="ResPlayerCrossFromDataServer" explain="返回请求公共服务器玩家跨服部分状态信息">
+		<field class="long" name="playerId" explain="角色id"></field>
+		<field class="String" name="userId" explain="账号"></field>
+		<field class="String" name="web" explain="服务器平台"></field>
+		<field class="String" name="bag" explain="跨服背包数据"></field>
+	</message>
+	
+	<message id="314" type="SS" name="ResPlayerCrossFromDataServerError" explain="返回请求公共服务器玩家跨服部分状态信息错误">
+		<field class="long" name="playerId" explain="角色id"></field>
+		<field class="String" name="userId" explain="账号"></field>
+		<field class="String" name="web" explain="服务器平台"></field>
+		<field class="int" name="state" explain="状态类型"></field>
+	</message>
+	
+	<message id="315" type="SS" name="ReqKickPlayerToCrossServer" explain="请求跨服服务器将玩家踢出">
+		<field class="long" name="playerId" explain="角色id"></field>
+		<field class="String" name="userId" explain="账号"></field>
+		<field class="String" name="web" explain="服务器平台"></field>
+		<field class="long" name="dataServerPlayerId" explain="角色id"></field>
+	</message>
+</messages>

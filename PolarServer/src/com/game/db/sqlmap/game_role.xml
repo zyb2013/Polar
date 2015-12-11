@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="game_role"> 
+  <resultMap id="role_brief" type="com.game.db.bean.Role" >
+    <id column="roleid" property="roleid" jdbcType="BIGINT" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="create_server" property="createServer" jdbcType="INTEGER" />
+    <result column="locate" property="locate" jdbcType="INTEGER" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="logintime" property="logintime" jdbcType="BIGINT" />
+    <result column="logouttime" property="logouttime" jdbcType="BIGINT" />
+    <result column="country" property="country" jdbcType="INTEGER" />
+    
+    <!-- 一级属性 start -->
+    <result column="strenth" property="strenth" jdbcType="INTEGER" />
+    <result column="attPower" property="attPower" jdbcType="INTEGER" />
+    <result column="agility" property="agility" jdbcType="INTEGER" />
+    <result column="intelligence" property="intelligence" jdbcType="INTEGER" />
+    <result column="restAttribute" property="restAttribute" jdbcType="INTEGER" />
+    <!-- 一级属性 end -->
+  </resultMap>
+  
+  <resultMap id="role" type="com.game.db.bean.Role" extends="game_role.role_brief" >
+    <result column="data" property="data" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  
+  <insert id="insert" parameterType="com.game.db.bean.Role" >
+    insert into role (roleid, userid, create_server, locate, level, name, sex, job, deleted, data,logintime,logouttime,version,isDelete,isForbid,country,loginIp,width,height,money,bindGold, spirit,bagCellsNum,storeCellsNum,prohibitChatTime,
+    startProhibitChatTime,addBlackTime,addBlackCount,exp,zhenqi,prestige,dieTime,arrowLevel,tianyuanLevel,prestigePoint,achievementPoint,fightPower,horseLevel,horseExp,onlineTime,map,mapModelId,x,y,hp,mp,sp,agentPlusdata,agentColdatas,
+    strenth,attPower,agility,intelligence,restAttribute)
+    values (#{roleid,jdbcType=BIGINT}, #{userid,jdbcType=VARCHAR}, #{createServer,jdbcType=INTEGER}, #{locate,jdbcType=INTEGER}, #{level,jdbcType=INTEGER}, 
+      #{name,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER},  #{job,jdbcType=INTEGER}, 0, #{data,jdbcType=LONGVARCHAR}, #{logintime,jdbcType=BIGINT}, #{logouttime,jdbcType=BIGINT}, #{version,jdbcType=INTEGER}, #{isDelete,jdbcType=INTEGER}, #{isForbid,jdbcType=INTEGER},
+      #{country,jdbcType=INTEGER}, #{loginIp,jdbcType=VARCHAR}, #{width,jdbcType=INTEGER}, #{height,jdbcType=INTEGER}, #{money,jdbcType=INTEGER}, #{bindGold,jdbcType=INTEGER}, #{spirit,jdbcType=INTEGER}, #{bagCellsNum,jdbcType=INTEGER},
+      #{storeCellsNum,jdbcType=INTEGER}, #{prohibitChatTime,jdbcType=BIGINT}, #{startProhibitChatTime,jdbcType=BIGINT}, #{addBlackTime,jdbcType=BIGINT}, #{addBlackCount,jdbcType=INTEGER}, #{exp,jdbcType=BIGINT},
+      #{zhenqi,jdbcType=INTEGER}, #{prestige,jdbcType=INTEGER}, #{dieTime,jdbcType=BIGINT}, #{arrowLevel,jdbcType=INTEGER}, #{tianyuanLevel,jdbcType=INTEGER}, #{prestigePoint,jdbcType=INTEGER}, #{achievementPoint,jdbcType=INTEGER},
+      #{fightPower,jdbcType=INTEGER}, #{horseLevel,jdbcType=INTEGER}, #{horseExp,jdbcType=INTEGER}, #{onlineTime,jdbcType=BIGINT}, #{map,jdbcType=INTEGER}, #{mapModelId,jdbcType=INTEGER}, #{x,jdbcType=INTEGER}, #{y,jdbcType=INTEGER},
+      #{hp,jdbcType=INTEGER}, #{mp,jdbcType=INTEGER}, #{sp,jdbcType=INTEGER}, #{agentPlusdata,jdbcType=VARCHAR}, #{agentColdatas,jdbcType=VARCHAR},
+      #{strenth,jdbcType=VARCHAR},#{attPower,jdbcType=VARCHAR},#{agility,jdbcType=VARCHAR},#{intelligence,jdbcType=VARCHAR},#{restAttribute,jdbcType=VARCHAR})
+  </insert>
+  
+  <select id="selectByUser" parameterType="java.util.Map" resultMap="role_brief">
+  	select roleid, userid, create_server, locate, level, name, sex, job, country from role where userid = #{userid,jdbcType=VARCHAR} and create_server = #{server,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByName" parameterType="String" resultType="int">
+  	select count(roleid) from role where name = #{name,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectIdByName" parameterType="String" resultType="Long">
+  	select roleid from role where name = #{name,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectById" parameterType="long" resultMap="role">
+  	select roleid, userid, create_server, locate, level, name, sex,  data, country from role where roleid = #{roleid,jdbcType=BIGINT} and deleted = 0;
+  </select>
+  
+   <select id="selectNames" resultType="String">
+  	select name from role
+  </select>
+  
+  <update id="update" parameterType="com.game.db.bean.Role" >
+     update role
+      set level = #{level,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      locate = #{locate,jdbcType=VARCHAR},
+      data = #{data,jdbcType=LONGVARCHAR},
+      logintime = #{logintime,jdbcType=BIGINT},
+      logouttime = #{logouttime,jdbcType=BIGINT},
+      version = #{version,jdbcType=INTEGER}, 
+      isDelete = #{isDelete,jdbcType=INTEGER}, 
+      isForbid = #{isForbid,jdbcType=INTEGER},
+      country = #{country,jdbcType=INTEGER}, 
+      loginIp = #{loginIp,jdbcType=VARCHAR}, 
+      width = #{width,jdbcType=INTEGER}, 
+      height = #{height,jdbcType=INTEGER},
+      money = #{money,jdbcType=INTEGER},
+      bindGold = #{bindGold,jdbcType=INTEGER},
+      spirit = #{spirit,jdbcType=INTEGER},
+      bagCellsNum = #{bagCellsNum,jdbcType=INTEGER},
+      storeCellsNum = #{storeCellsNum,jdbcType=INTEGER}, 
+      prohibitChatTime = #{prohibitChatTime,jdbcType=BIGINT}, 
+      startProhibitChatTime = #{startProhibitChatTime,jdbcType=BIGINT}, 
+      addBlackTime = #{addBlackTime,jdbcType=BIGINT}, 
+      addBlackCount = #{addBlackCount,jdbcType=INTEGER}, 
+      exp = #{exp,jdbcType=BIGINT},
+      zhenqi = #{zhenqi,jdbcType=INTEGER}, 
+      prestige = #{prestige,jdbcType=INTEGER},
+      dieTime = #{dieTime,jdbcType=BIGINT}, 
+      arrowLevel = #{arrowLevel,jdbcType=INTEGER}, 
+      tianyuanLevel = #{tianyuanLevel,jdbcType=INTEGER},
+      prestigePoint = #{prestigePoint,jdbcType=INTEGER}, 
+      achievementPoint = #{achievementPoint,jdbcType=INTEGER},
+      fightPower = #{fightPower,jdbcType=INTEGER}, 
+      horseLevel = #{horseLevel,jdbcType=INTEGER}, 
+      horseExp = #{horseExp,jdbcType=INTEGER}, 
+      onlineTime = #{onlineTime,jdbcType=BIGINT}, 
+      map = #{map,jdbcType=INTEGER}, 
+      mapModelId = #{mapModelId,jdbcType=INTEGER},
+      x = #{x,jdbcType=INTEGER}, 
+      y = #{y,jdbcType=INTEGER},
+      hp = #{hp,jdbcType=INTEGER},
+      mp = #{mp,jdbcType=INTEGER}, 
+      sp = #{sp,jdbcType=INTEGER},
+      strenth = #{strenth,jdbcType=INTEGER},
+      attPower = #{attPower,jdbcType=INTEGER},
+      agility = #{agility,jdbcType=INTEGER},
+      intelligence = #{intelligence,jdbcType=INTEGER},
+      restAttribute = #{restAttribute,jdbcType=INTEGER}
+    where roleid = #{roleid,jdbcType=BIGINT}
+  </update>
+</mapper>

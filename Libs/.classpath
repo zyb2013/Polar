@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/asm-3.3.1.jar"/>
+	<classpathentry kind="lib" path="libs/c3p0-0.9.1.1.jar"/>
+	<classpathentry kind="lib" path="libs/cglib-2.2.2.jar"/>
+	<classpathentry kind="lib" path="libs/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="libs/commons-codec.jar"/>
+	<classpathentry kind="lib" path="libs/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="libs/commons-core-1.0.jar" sourcepath="D:/BaiduYunDownload/QMR/WIN-UGHTC7C1PBF/qmr_6/GameCore"/>
+	<classpathentry kind="lib" path="libs/commons-dbutils-1.5.jar"/>
+	<classpathentry kind="lib" path="libs/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="libs/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="libs/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="libs/fastjson-1.1.17.jar"/>
+	<classpathentry kind="lib" path="libs/GameRecorder.jar"/>
+	<classpathentry kind="lib" path="libs/jakarta-oro-2.0.8.jar"/>
+	<classpathentry kind="lib" path="libs/javax.mail.jar"/>
+	<classpathentry kind="lib" path="libs/json-lib-2.4-jdk15.jar"/>
+	<classpathentry kind="lib" path="libs/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="libs/mina-core-2.0.7.jar"/>
+	<classpathentry kind="lib" path="libs/mybatis-3.0.6.jar"/>
+	<classpathentry kind="lib" path="libs/mysql-connector-java-5.0.7-bin.jar"/>
+	<classpathentry kind="lib" path="libs/org.apache.logging.log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="libs/protobuf-java-2.5.0.jar"/>
+	<classpathentry kind="lib" path="libs/quartz-2.2.1.jar"/>
+	<classpathentry kind="lib" path="libs/slf4j-api-1.6.6.jar"/>
+	<classpathentry kind="lib" path="libs/slf4j-log4j12-1.6.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

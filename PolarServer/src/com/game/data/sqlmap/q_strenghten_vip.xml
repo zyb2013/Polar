@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_strenghten_vip"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_strenghten_vipBean" >
+	<result column="q_strenghten_level" property="q_strenghten_level" jdbcType="INTEGER" />
+	<result column="q_vip_level" property="q_vip_level" jdbcType="INTEGER" />
+	<result column="q_diamond" property="q_diamond" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_strenghten_vip
+  </select>
+</mapper> 

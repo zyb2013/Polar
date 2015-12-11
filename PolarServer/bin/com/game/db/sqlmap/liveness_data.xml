@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="liveness_data"> 
+	<resultMap id="liveness_brief" type="com.game.db.bean.LivenessBean" >
+		<result column="roleid" property="roleid" jdbcType="BIGINT" />
+		<result column="liveness" property="liveness" jdbcType="INTEGER" />
+	</resultMap>
+  
+  <resultMap id="liveness" type="com.game.db.bean.LivenessBean" extends="liveness_data.liveness_brief">
+    <result column="gain_state" property="gain_state" jdbcType="LONGVARCHAR" />
+    <result column="events" property="events" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  	
+  	<!-- 从DB读取一条数据 -->
+  	<select id="select" parameterType="long" resultMap="liveness">
+  		SELECT g.roleid, g.liveness, g.gain_state, g.events FROM liveness_data g WHERE g.roleid=#{roleid,jdbcType=BIGINT}
+  	</select>
+  	
+  	<!-- 更新领取状态数据 -->
+  	<update id="updateGain" parameterType="com.game.db.bean.LivenessBean" >
+		update liveness_data set gain_state=#{gain_state,jdbcType=LONGVARCHAR}  where roleid = #{ roleid,jdbcType=BIGINT}
+	</update>
+	
+	<!-- 更新活跃度数据 -->
+  	<update id="updateLiveness" parameterType="com.game.db.bean.LivenessBean" >
+		update liveness_data set liveness=#{ liveness,jdbcType=INTEGER } where roleid=#{ roleid,jdbcType=BIGINT}
+	</update>
+	
+	<!-- 更新事件进度数据 -->
+  	<update id="updateEvent" parameterType="com.game.db.bean.LivenessBean" >
+		update liveness_data set events=#{events,jdbcType=LONGVARCHAR} where roleid = #{ roleid,jdbcType=BIGINT }
+	</update>
+	
+  	<!-- 更新所有数据 -->
+  	<update id="updateAll" parameterType="com.game.db.bean.LivenessBean" >
+		update liveness_data set liveness=#{ liveness,jdbcType=INTEGER },gain_state=#{ gain_state,jdbcType=LONGVARCHAR }
+		,events=#{ events,jdbcType=LONGVARCHAR} where roleid=#{roleid,jdbcType=BIGINT}
+	</update>
+	
+	<!-- 插入数据 -->
+	<insert id="insert" parameterType="com.game.db.bean.LivenessBean" >
+		insert into liveness_data (roleid, liveness, gain_state, events) values 
+		(
+			#{ roleid,		jdbcType=BIGINT },
+			#{ liveness,	jdbcType=INTEGER },
+			#{ gain_state,	jdbcType=LONGVARCHAR },
+			#{ events,		jdbcType=LONGVARCHAR }
+		)
+	</insert>
+</mapper> 

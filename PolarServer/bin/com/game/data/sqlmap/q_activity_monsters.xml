@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_activity_monsters"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_activity_monstersBean" >
+	<result column="q_monsters" property="q_monsters" jdbcType="VARCHAR" />
+	<result column="q_refreshtime" property="q_refreshtime" jdbcType="VARCHAR" />
+	<result column="q_map" property="q_map" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_activity_monsters
+  </select>
+</mapper> 

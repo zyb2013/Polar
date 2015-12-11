@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="gold_expend">
+  <resultMap id="goldExpend" type="com.game.db.bean.GoldExpend" >
+    <result column="unuse_index" property="userid" jdbcType="BIGINT" />
+	<result column="time" property="userid" jdbcType="BIGINT" />
+	<result column="roleid" property="userid" jdbcType="BIGINT" />
+	<result column="goldnum" property="userid" jdbcType="INTEGER" />
+	 <result column="reason" property="userid" jdbcType="INTEGER" />
+  </resultMap>
+
+	<insert id="insert" parameterType="com.game.db.bean.GoldExpend">
+		insert into gold_expend (
+		unuse_index,
+		time,
+		roleid,
+		goldnum,
+		reason
+		) values (
+		#{unuse_index,jdbcType=BIGINT},
+		#{time,jdbcType=BIGINT},
+		#{roleid,jdbcType=BIGINT},
+		#{goldnum,jdbcType=INTEGER},
+		#{reason,jdbcType=INTEGER}
+		)
+	</insert>
+
+	<select id="select" parameterType="HashMap" resultType="Integer">
+		select sum(goldnum)
+		from gold_expend
+		where
+		roleid = #{roleid,jdbcType=VARCHAR}
+		and
+		time <![CDATA[<]]> #{end_time,jdbcType=BIGINT}
+		and
+		time <![CDATA[>]]> #{start_time,jdbcType=BIGINT}
+	</select>
+</mapper> 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_casting_cost"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_casting_costBean" >
+	<result column="q_min_level" property="q_min_level" jdbcType="INTEGER" />
+	<result column="q_max_level" property="q_max_level" jdbcType="INTEGER" />
+	<result column="q_cost_coin" property="q_cost_coin" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_casting_cost
+  </select>
+</mapper> 

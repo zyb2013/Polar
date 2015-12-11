@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_vip"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_vipBean" >
+	<result column="q_level" property="q_level" jdbcType="INTEGER" />
+	<result column="q_name" property="q_name" jdbcType="VARCHAR" />
+	<result column="q_desc" property="q_desc" jdbcType="VARCHAR" />
+	<result column="q_exp" property="q_exp" jdbcType="INTEGER" />
+	<result column="q_transaction" property="q_transaction" jdbcType="INTEGER" />
+	<result column="q_hangUp" property="q_hangUp" jdbcType="INTEGER" />
+	<result column="q_shop" property="q_shop" jdbcType="INTEGER" />
+	<result column="q_storage" property="q_storage" jdbcType="INTEGER" />
+	<result column="q_chat" property="q_chat" jdbcType="INTEGER" />
+	<result column="q_devil" property="q_devil" jdbcType="INTEGER" />
+	<result column="q_signIn" property="q_signIn" jdbcType="INTEGER" />
+	<result column="q_active" property="q_active" jdbcType="INTEGER" />
+	<result column="q_lottery" property="q_lottery" jdbcType="INTEGER" />
+	<result column="q_inspire" property="q_inspire" jdbcType="INTEGER" />
+	<result column="q_store" property="q_store" jdbcType="INTEGER" />
+	<result column="q_transfer" property="q_transfer" jdbcType="INTEGER" />
+	<result column="q_horse" property="q_horse" jdbcType="INTEGER" />
+	<result column="q_strength" property="q_strength" jdbcType="INTEGER" />
+	<result column="q_monsterExp" property="q_monsterExp" jdbcType="INTEGER" />
+	<result column="q_attribute" property="q_attribute" jdbcType="VARCHAR" />
+	<result column="q_pray" property="q_pray" jdbcType="INTEGER" />
+	<result column="q_pt" property="q_pt" jdbcType="INTEGER" />
+	<result column="q_advanced_horse_strengthen" property="q_advanced_horse_strengthen" jdbcType="INTEGER" />
+	<result column="q_super_horse_strengthen" property="q_super_horse_strengthen" jdbcType="INTEGER" />
+  </resultMap>
+  <select id="select" resultMap="bean">
+  	select * from q_vip
+  </select>
+</mapper> 

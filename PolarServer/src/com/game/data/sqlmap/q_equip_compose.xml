@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_equip_compose"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_equip_composeBean" >
+	<result column="item_type" property="item_type" jdbcType="INTEGER" />
+	<result column="item_name" property="item_name" jdbcType="VARCHAR" />
+	<result column="compose_id" property="compose_id" jdbcType="INTEGER" />
+	<result column="use_item" property="use_item" jdbcType="VARCHAR" />
+	<result column="success_percent" property="success_percent" jdbcType="INTEGER" />
+	<result column="money_need" property="money_need" jdbcType="INTEGER" />
+	<result column="diamond_need" property="diamond_need" jdbcType="INTEGER" />
+	<result column="other_result_items" property="other_result_items" jdbcType="VARCHAR" />
+	<result column="use_not_sign_item" property="use_not_sign_item" jdbcType="VARCHAR" />
+	<result column="use_not_sign_item_id" property="use_not_sign_item_id" jdbcType="VARCHAR" />
+	<result column="Q_Nonfinite_item" property="Q_Nonfinite_item" jdbcType="VARCHAR" />
+	<result column="Q_Nonfinite_num" property="Q_Nonfinite_num" jdbcType="INTEGER" />
+	<result column="success_percent_max" property="success_percent_max" jdbcType="INTEGER" />
+	<result column="q_addition_prob" property="q_addition_prob" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="select" resultMap="bean">
+  	select * from q_equip_compose
+  </select>
+</mapper> 

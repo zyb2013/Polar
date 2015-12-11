@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="guild"> 
+	<resultMap id="bean" type="com.game.db.bean.GuildBean" >
+		<result column="guildid" property="guildid" jdbcType="BIGINT" />
+		<result column="guildName" property="guildName" jdbcType="VARCHAR" />
+		<result column="guilddata" property="guilddata" jdbcType="LONGVARCHAR" />
+		<result column="guildmsgdata" property="guildmsgdata" jdbcType="LONGVARCHAR" />
+		<result column="guildactivevalue" property="guildactivevalue" jdbcType="LONGVARCHAR" />
+		<result column="guildcalactivevaluetime" property="guildcalactivevaluetime" jdbcType="BIGINT" />
+		<result column="guildfightpower" property="guildfightpower" jdbcType="INTEGER" />
+	</resultMap>
+  
+	<select id="selectById" parameterType="long" resultMap="bean">
+		select * from guild where guildid = #{guildid,jdbcType=BIGINT}
+	</select>
+</mapper> 

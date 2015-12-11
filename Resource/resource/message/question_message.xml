@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages package="com.game.question" id="158">
+	<!-- bean定义 -->
+	
+	<!-- 服务器发送消息 -->
+	<message id="101" type="WC" name="ResSendQuestionInfo" explain="问题信息">
+		<field class="short" name="index" explain="题目序号" ></field>
+		<field class="int" name="q_id" explain="题目id,即题目在数据库里面的编号"></field>
+	</message>
+	<message id="102" type="WC" name="ResSendQuestionResult" explain="答题结果">
+		<field class="byte" name="isRight" explain="0:正确 1:错误"></field>
+	</message>
+	<message id="103" type="WC" name="ResSendQuestionScore" explain="最终得分">
+		<field class="int" name="score" explain="答题分数"></field>
+	</message>
+	<message id="104" type="WC" name="ResSendQuestionJoin" explain="是否参与答题">
+	</message>
+
+	<!-- 服务器接收消息 -->
+	<message id="201" type="CS" name="ReqGetQuestionJoin" explain="参加答题">
+	</message>
+
+	<message id="202" type="CS" name="ReqGetQuestionChoose" explain="选择答案">
+		<field class="byte" name="choose" explain="选项"></field>
+	</message>
+	
+	<!-- 服务器内部消息 游戏服务器发送到世界服务器 -->
+	<message id="301" type="SW" name="ReqGetQuestionJoinToWorld" explain="参加答题">
+		<field class="long" name="playerId" explain="角色Id"></field>
+	</message>
+	<message id="302" type="SW" name="ReqGetQuestionChooseToWorld" explain="选择答案">
+		<field class="long" name="playerId" explain="角色Id"></field>
+		<field class="byte" name="choose" explain="选项"></field>
+	</message>
+</messages>

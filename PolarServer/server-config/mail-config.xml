@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<server>
+	<host>mail.qmr.moloong.com</host>
+	<port>25</port>
+	<timeout>60000</timeout>
+	<defaultuser>gm@qmr.moloong.com</defaultuser>
+	<defaultfrom>gm@qmr.moloong.com</defaultfrom>
+	<username>gm@qmr.moloong.com</username>
+	<password>sdji@#^;ldkfLI786LK34A#^asd)*6ddf</password>
+	<from>gm@qmr.moloong.com</from>
+</server>

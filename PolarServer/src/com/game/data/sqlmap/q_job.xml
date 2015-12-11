@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_job"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_jobBean" >
+	<result column="id" property="id" jdbcType="INTEGER" />
+	<result column="level" property="level" jdbcType="INTEGER" />
+	<result column="curExp" property="curExp" jdbcType="INTEGER" />
+	<result column="surplusOfPoint" property="surplusOfPoint" jdbcType="INTEGER" />
+	<result column="strength" property="strength" jdbcType="INTEGER" />
+	<result column="vitality" property="vitality" jdbcType="INTEGER" />
+	<result column="agile" property="agile" jdbcType="INTEGER" />
+	<result column="intelligence" property="intelligence" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_job
+  </select>
+</mapper> 

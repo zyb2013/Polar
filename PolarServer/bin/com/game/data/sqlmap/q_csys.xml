@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_csys"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_csysBean" >
+	<result column="q_type" property="q_type" jdbcType="INTEGER" />
+	<result column="q_value" property="q_value" jdbcType="VARCHAR" />
+	<result column="q_integral" property="q_integral" jdbcType="INTEGER" />
+	<result column="q_parm" property="q_parm" jdbcType="VARCHAR" />
+	<result column="q_retime" property="q_retime" jdbcType="INTEGER" />
+	<result column="q_rad_min" property="q_rad_min" jdbcType="INTEGER" />
+	<result column="q_rad_max" property="q_rad_max" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_csys
+  </select>
+</mapper> 

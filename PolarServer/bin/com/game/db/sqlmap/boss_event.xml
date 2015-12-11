@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="boss_event"> 
+	<resultMap id="bean" type="com.game.db.bean.BossEventBean" >
+		<result column="event_id" property="eventId" jdbcType="BIGINT" />
+		<result column="type" property="type" jdbcType="SMALLINT" />
+		<result column="player_name" property="playerName" jdbcType="VARCHAR" />
+		<result column="player_id" property="playerId" jdbcType="BIGINT" />
+		<result column="boss_map_id" property="bossMapId" jdbcType="INTEGER" />
+		<result column="boss_id" property="bossId" jdbcType="INTEGER" />
+		<result column="item_info" property="item" jdbcType="LONGVARCHAR" />
+		<result column="time" property="time" jdbcType="BIGINT" />
+	</resultMap>
+	
+	<select id="select" resultMap="bean">
+		SELECT * from boss_event
+	</select>
+  
+	<insert id="insert" parameterType="com.game.db.bean.BossEventBean" >
+		insert into boss_event (
+		event_id,
+		player_name,
+		player_id,
+		boss_map_id,
+		boss_id,
+		item_info,
+		type,
+		time
+		)
+		values (
+		#{ eventId,jdbcType=BIGINT },
+		#{ playerName,jdbcType=VARCHAR },
+		#{ playerId,jdbcType=BIGINT },
+		#{ bossMapId,jdbcType=INTEGER },
+		#{ bossId,jdbcType=INTEGER },
+		#{ item,jdbcType=LONGVARCHAR },
+		#{ type,jdbcType=SMALLINT },
+		#{ time,jdbcType=BIGINT }
+		)
+	</insert>
+	
+	<delete id="delete" parameterType="Long" >
+		delete from boss_event where event_id = #{eventId,jdbcType=BIGINT}
+	</delete>
+</mapper> 

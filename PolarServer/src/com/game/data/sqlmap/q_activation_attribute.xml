@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_activation_attribute"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_activation_attributeBean" >
+	<result column="q_id" property="q_id" jdbcType="INTEGER" />
+	<result column="q_type" property="q_type" jdbcType="INTEGER" />
+	<result column="q_param" property="q_param" jdbcType="VARCHAR" />
+	<result column="q_attribute" property="q_attribute" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_activation_attribute
+  </select>
+</mapper> 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_lostskill"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_lost_skillBean" >
+	<result column="q_skill_id" 	property="q_skill_id" 		jdbcType="VARCHAR" />
+	<result column="q_skill_type" 	property="q_skill_type" 	jdbcType="INTEGER" />
+	<result column="q_skill_level" 	property="q_skill_level" 	jdbcType="INTEGER" />
+	<result column="q_need_level" 	property="q_need_level" 	jdbcType="INTEGER" />
+	<result column="q_need_info" 	property="q_need_info" 		jdbcType="VARCHAR" />
+	<result column="q_skill_name" 	property="q_skill_name" 	jdbcType="VARCHAR" />
+	<result column="q_add_attr" 	property="q_add_attr" 		jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_lostskill
+  </select>
+</mapper> 

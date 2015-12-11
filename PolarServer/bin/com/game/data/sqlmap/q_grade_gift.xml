@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_grade_gift"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_grade_giftBean" >
+	<result column="q_id" property="q_id" jdbcType="INTEGER" />
+	<result column="q_need_grade" property="q_need_grade" jdbcType="INTEGER" />
+	<result column="q_max_gain" property="q_max_gain" jdbcType="INTEGER" />
+	<result column="q_reward" property="q_reward" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_grade_gift
+  </select>
+</mapper> 

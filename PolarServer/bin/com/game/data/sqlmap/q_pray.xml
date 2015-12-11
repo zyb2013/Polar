@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_pray"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_prayBean" >
+	<result column="q_prayid" property="q_prayid" jdbcType="INTEGER" />
+	<result column="q_pray_times" property="q_pray_times" jdbcType="INTEGER" />
+	<result column="q_pray_gold_cost" property="q_pray_gold_cost" jdbcType="INTEGER" />
+	<result column="q_pray_exp_cost" property="q_pray_exp_cost" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_pray
+  </select>
+</mapper> 

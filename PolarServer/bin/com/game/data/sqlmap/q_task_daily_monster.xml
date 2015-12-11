@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_task_daily_monster"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_task_daily_monsterBean" >
+	<result column="q_id" property="q_id" jdbcType="INTEGER" />
+	<result column="q_monster" property="q_monster" jdbcType="VARCHAR" />
+	<result column="q_level" property="q_level" jdbcType="INTEGER" />
+	<result column="q_map" property="q_map" jdbcType="INTEGER" />
+	<result column="q_x" property="q_x" jdbcType="INTEGER" />
+	<result column="q_y" property="q_y" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_task_daily_monster
+  </select>
+</mapper> 

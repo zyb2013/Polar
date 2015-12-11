@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<server>
+	<server-name>Game1</server-name>
+	<server-id>1</server-id>
+	<server-web>37wan</server-web>
+	<public-server>
+		<server-id>15000</server-id>
+		<server-ip>192.168.1.60</server-ip>
+		<server-port>8800</server-port>
+	</public-server>
+</server>

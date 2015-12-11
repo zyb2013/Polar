@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="gold_raffle">
+	<resultMap id="goldRaffle" type="com.game.goldraffle.structs.GoldRaffleData">
+		<id column="playerId" property="playerId" jdbcType="BIGINT"/>
+	</resultMap>
+	
+	<resultMap id="goldRaffleData" type="com.game.goldraffle.structs.GoldRaffleData" extends="gold_raffle.goldRaffle" >
+	   <result column="data" property="data" jdbcType="LONGVARCHAR" />
+	</resultMap>
+  
+	<insert id="save" parameterType="com.game.goldraffle.structs.GoldRaffleData">
+		replace into goldraffle (playerId, data) values (#{playerId,jdbcType=BIGINT},#{data,jdbcType=LONGVARCHAR})
+	</insert>
+
+	<select id="load" parameterType="Long" resultMap="goldRaffle">
+		select * from goldraffle where playerId = #{playerId,jdbcType=BIGINT}
+	</select>
+</mapper>

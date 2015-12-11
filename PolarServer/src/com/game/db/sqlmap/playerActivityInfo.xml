@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="playerActivityInfo">
+
+	<resultMap id="activityInfo" type="com.game.newactivity.model.PlayerActivityInfo" >
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<id column="playerId" property="playerId" jdbcType="BIGINT" />
+		<id column="job" property="job" jdbcType="INTEGER" />
+		<id column="activityId" property="activityId" jdbcType="INTEGER" />
+		<id column="info" property="info" jdbcType="VARCHAR" />
+		<id column="awardInfo" property="awardInfo" jdbcType="VARCHAR" />
+		<id column="canAward" property="canAward" jdbcType="INTEGER" />
+		<id column="time" property="time" jdbcType="BIGINT" />
+	</resultMap>
+
+	<insert id="insert" parameterType="com.game.newactivity.model.PlayerActivityInfo" >
+		insert into PlayerActivityInfo (
+				id,playerId,job,activityId,info,awardInfo,canAward,time
+			) values (
+				#{id,jdbcType=INTEGER},
+				#{playerId,jdbcType=INTEGER},
+				#{job,jdbcType=INTEGER},
+				#{activityId,jdbcType=INTEGER},
+				#{info,jdbcType=VARCHAR},
+				#{awardInfo,jdbcType=VARCHAR}, 
+				#{canAward,jdbcType=INTEGER},
+				#{time,jdbcType=BIGINT}
+			)
+	</insert>
+
+	<select id="selectById" parameterType="int" resultMap="activityInfo">
+		select 	id,playerId,job,activityId,info,awardInfo,canAward from PlayerActivityInfo 
+		where id=#{id,jdbcType=INTEGER} 
+	</select>
+	
+	<select id="selectByPlayerId" parameterType="long" resultMap="activityInfo">
+		select 	id,playerId,job,activityId,info,awardInfo,canAward from PlayerActivityInfo 
+		where playerId=#{playerId,jdbcType=INTEGER} 
+	</select>
+	
+	<select id="selectByActivity" parameterType="int" resultMap="activityInfo">
+		select 	id,playerId,job,activityId,info,awardInfo,canAward from PlayerActivityInfo 
+		where activityId=#{activityId,jdbcType=INTEGER} 
+	</select>
+	
+	<select id="selectByActivityIdAndAward" parameterType="int" resultMap="activityInfo">
+		select 	id,playerId,job,activityId,info,awardInfo,canAward from PlayerActivityInfo 
+		where activityId=#{activityId,jdbcType=INTEGER} and canAward !=0
+	</select>
+
+	<update id="update" parameterType="com.game.newactivity.model.PlayerActivityInfo" >
+		update PlayerActivityInfo set 
+			info = #{info,jdbcType=VARCHAR},
+			awardInfo = #{awardInfo,jdbcType=VARCHAR},
+			canAward = #{canAward,jdbcType=INTEGER}
+		where 
+			playerId = #{playerId,jdbcType=BIGINT} and activityId = #{activityId,jdbcType=INTEGER}
+	</update>
+	
+	<delete id="deleteByActivityId" parameterType="int">
+		delete  from PlayerActivityInfo where activityId=#{activityId,jdbcType=INTEGER} 
+	</delete>
+</mapper> 

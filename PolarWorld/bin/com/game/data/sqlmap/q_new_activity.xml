@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_new_activity"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_newActivityBean" >
+	<result column="q_id" property="q_id" jdbcType="INTEGER" />
+	<result column="q_desc" property="q_desc" jdbcType="VARCHAR" />
+	<result column="q_notice" property="q_notice" jdbcType="VARCHAR" />
+	<result column="q_startAndEnd" property="q_startAndEnd" jdbcType="VARCHAR" />
+	<result column="q_stime" property="q_stime" jdbcType="VARCHAR" />
+	<result column="q_logic" property="q_logic" jdbcType="VARCHAR" />
+	<result column="q_condDesc" property="q_condDesc" jdbcType="VARCHAR" />
+	<result column="q_expend" property="q_expend" jdbcType="VARCHAR" />
+	<result column="q_onof" property="q_onof" jdbcType="INTEGER" />
+	<result column="q_group" property="q_group" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_new_activity
+  </select>
+  
+  <update id="update" parameterType="com.game.data.bean.Q_newActivityBean" >
+		update q_new_activity set 
+			q_desc = #{q_desc,jdbcType=VARCHAR},
+			q_notice = #{q_notice,jdbcType=VARCHAR},
+			q_startAndEnd = #{q_startAndEnd,jdbcType=VARCHAR},
+			q_stime = #{q_stime,jdbcType=VARCHAR},
+			q_logic = #{q_logic,jdbcType=VARCHAR},
+			q_condDesc = #{q_condDesc,jdbcType=VARCHAR},
+			q_expend = #{q_expend,jdbcType=VARCHAR},
+			q_onof = #{q_onof,jdbcType=INTEGER},
+			q_group = #{q_group,jdbcType=INTEGER}
+		where 
+			q_id = #{q_id,jdbcType=INTEGER}
+	</update>
+</mapper> 

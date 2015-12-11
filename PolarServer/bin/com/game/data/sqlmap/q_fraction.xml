@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_fraction"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_fractionBean" >
+	<result column="q_dfraction_id" property="q_dfraction_id" jdbcType="INTEGER" />
+	<result column="q_dfraction_type" property="q_dfraction_type" jdbcType="INTEGER" />
+	<result column="q_dfraction_item_id" property="q_dfraction_item_id" jdbcType="INTEGER" />
+	<result column="q_dfraction_item_name" property="q_dfraction_item_name" jdbcType="VARCHAR" />
+	<result column="q_dfraction_item_amount" property="q_dfraction_item_amount" jdbcType="INTEGER" />
+	<result column="q_dfraction_item_addition" property="q_dfraction_item_addition" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_fraction
+  </select>
+</mapper> 

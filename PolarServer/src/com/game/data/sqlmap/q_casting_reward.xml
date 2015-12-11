@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_casting_reward"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_casting_rewardBean" >
+	<result column="q_min_level" property="q_min_level" jdbcType="INTEGER" />
+	<result column="q_max_level" property="q_max_level" jdbcType="INTEGER" />
+	<result column="q_item_id" property="q_item_id" jdbcType="INTEGER" />
+	<result column="q_job" property="q_job" jdbcType="VARCHAR" />
+	<result column="q_weight" property="q_weight" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_casting_reward
+  </select>
+</mapper> 

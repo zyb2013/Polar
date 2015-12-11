@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="gold_raffle_event">
+	<resultMap id="goldRaffleEvent" type="com.game.goldraffle.structs.GoldRaffleEventData">
+		<id column="eventId" property="eventId" jdbcType="BIGINT"/>
+		<result column="messageTime" property="messageTime" jdbcType="INTEGER"/>
+		<result column="messageType" property="messageType" jdbcType="VARCHAR"/>
+		<result column="message" property="message" jdbcType="LONGVARCHAR"/>
+	</resultMap>
+
+	<insert id="insert" parameterType="com.game.goldraffle.structs.GoldRaffleEventData">
+		insert into goldraffleevent (eventId, messageTime, messageType,	message) values 
+		(#{eventId,jdbcType=BIGINT}, #{messageTime,jdbcType=INTEGER}, #{messageType,jdbcType=VARCHAR},#{message,jdbcType=LONGVARCHAR})
+	</insert>
+
+	<select id="select" resultMap="goldRaffleEvent">
+		select * from goldraffleevent order by eventId asc
+	</select>
+
+	<delete id="delete" parameterType="Long" >
+		delete from goldraffleevent where eventId = #{eventId,jdbcType=BIGINT}
+	</delete>
+</mapper>

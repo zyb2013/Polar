@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_liveness_box"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_liveness_boxBean" >
+	<result column="q_box_id" property="q_box_id" jdbcType="INTEGER" />
+	<result column="q_box_name" property="q_box_name" jdbcType="VARCHAR" />
+	<result column="q_value_min" property="q_value_min" jdbcType="INTEGER" />
+	<result column="q_items" property="q_items" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_liveness_box
+  </select>
+</mapper> 

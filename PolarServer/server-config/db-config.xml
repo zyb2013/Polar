@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE configuration 
+  PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN" 
+  "http://ibatis.apache.org/dtd/ibatis-3-config.dtd">  
+<configuration>
+  <settings>
+	<setting name="defaultStatementTimeout" value="60"/>
+  </settings>
+  
+  <environments default="development"> 
+      <environment id="development"> 
+      <transactionManager type="JDBC"/> 
+      <dataSource type="POOLED"> 
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1/qmr?autoReconnect=true"/> 
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+
+        <property name="poolPingQuery" value="select 1"/>
+        <property name="poolPingEnabled" value="true"/>
+        <property name="poolPingConnectionsNotUsedFor" value="3600000"/>
+      </dataSource> 
+    </environment> 
+  </environments> 
+  <mappers> 
+    <mapper resource="com/game/db/sqlmap/mail.xml"/>
+    <mapper resource="com/game/db/sqlmap/gold.xml"/>
+    <mapper resource="com/game/db/sqlmap/game_role.xml"/>
+    <mapper resource="com/game/db/sqlmap/gamemaster.xml"/>
+    <mapper resource="com/game/db/sqlmap/serverparam.xml"/>
+    <mapper resource="com/game/db/sqlmap/goldrechargelog.xml"/>
+    <mapper resource="com/game/db/sqlmap/server_count.xml"/>
+    <mapper resource="com/game/db/sqlmap/blacklist.xml"/>
+    <mapper resource="com/game/db/sqlmap/system_grant.xml"/>
+    <mapper resource="com/game/db/sqlmap/marriage.xml"/>
+    <mapper resource="com/game/db/sqlmap/wedding.xml"/>
+    <mapper resource="com/game/db/sqlmap/protect.xml"/>
+    <mapper resource="com/game/db/sqlmap/gold_expend.xml"/>
+    <mapper resource="com/game/db/sqlmap/gold_raffle.xml"/>
+    <mapper resource="com/game/db/sqlmap/gold_raffle_event.xml"/>
+    <mapper resource="com/game/db/sqlmap/boss_event.xml"/>
+    <mapper resource="com/game/db/sqlmap/playerActivityInfo.xml"/>
+    <mapper resource="com/game/db/sqlmap/guild.xml"/>
+  </mappers>
+  
+</configuration> 

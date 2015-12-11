@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_equip_compose_append"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_equip_compose_appendBean" >
+	<result column="compose_id" property="compose_id" jdbcType="INTEGER" />
+	<result column="q_equip_steplv_append" property="q_equip_steplv_append" jdbcType="VARCHAR" />
+	<result column="q_equip_strenglv" property="q_equip_strenglv" jdbcType="VARCHAR" />
+	<result column="q_equip_attributelv" property="q_equip_attributelv" jdbcType="VARCHAR" />
+	<result column="q_equip_remarkablenum" property="q_equip_remarkablenum" jdbcType="VARCHAR" />
+	<result column="q_equip_isluck" property="q_equip_isluck" jdbcType="VARCHAR" />
+	<result column="q_equip_IGNORE_ATTACKPERCENT" property="q_equip_IGNORE_ATTACKPERCENT" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_equip_compose_append
+  </select>
+</mapper> 

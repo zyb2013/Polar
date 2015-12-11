@@ -1,0 +1,9 @@
+*.class
+bin
+.classpath
+.project
+Libs.iml
+.idea
+.settings
+*.iml
+RemoteSystemsTempFiles

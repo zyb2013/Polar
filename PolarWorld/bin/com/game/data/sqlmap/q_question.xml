@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<mapper namespace="q_question"> 
+  <resultMap id="bean" type="com.game.data.bean.Q_questionBean" >
+	<result column="q_id" property="q_id" jdbcType="INTEGER" />
+	<result column="q_question_content" property="q_question_content" jdbcType="LONGVARCHAR" />
+	<result column="q_answer_content_1" property="q_answer_content_1" jdbcType="LONGVARCHAR" />
+	<result column="q_answer_content_2" property="q_answer_content_2" jdbcType="LONGVARCHAR" />
+	<result column="q_answer_content_3" property="q_answer_content_3" jdbcType="LONGVARCHAR" />
+	<result column="q_answer_content_4" property="q_answer_content_4" jdbcType="LONGVARCHAR" />
+	<result column="q_right_answer_id" property="q_right_answer_id" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="select" resultMap="bean">
+  	select * from q_question
+  </select>
+</mapper> 
